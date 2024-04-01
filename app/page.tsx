@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <div className="relative">
           <div className="bg-gray-200 absolute rounded-full w-full h-2" />
-          <div className="bg-green-300 absolute rounded-full w-1/2 h-2" />
+          <div className="bg-green-400 absolute rounded-full w-1/2 h-2" />
         </div>
         <div>
           <span>Expected</span>
