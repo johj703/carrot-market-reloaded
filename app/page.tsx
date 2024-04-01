@@ -19,13 +19,13 @@ export default function Home() {
         </div>
         <div className="relative">
           <div className="bg-gray-200 absolute rounded-full w-full h-2" />
-          <div className="bg-green-400 absolute rounded-full w-1/2 h-2" />
+          <div className="bg-green-400 absolute rounded-full w-2/3 h-2" />
         </div>
-        <div>
+        <div className="flex justify-between items-center mt-5 text-gray-600">
           <span>Expected</span>
           <span>Sorting center</span>
           <span>In transit</span>
-          <span>Delivered</span>
+          <span className="text-gray-400">Delivered</span>
         </div>
       </div>
     </main>
