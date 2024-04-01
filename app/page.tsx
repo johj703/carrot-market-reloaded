@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="bg-slate-300 h-screen flex items-center justify-center">
+    <main className="bg-slate-300 h-screen flex items-center justify-center p-5">
       <div>
         <div>
           <div>
