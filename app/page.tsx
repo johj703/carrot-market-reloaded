@@ -7,7 +7,7 @@ export default function Home() {
           type="text"
           placeholder="Search here!"
         />
-        <button className="py-2 font-medium text-white transition-transform rounded-full outline-none active:scale-90 md:px-10 bg-gradient-to-tr from-cyan-500 to-purple-400">
+        <button className="py-2 font-medium text-white transition-transform rounded-full outline-none active:scale-90 md:px-10 bg-gradient-to-tr from-cyan-500 via-yellow-400 to-purple-400">
           Search
         </button>
       </div>
