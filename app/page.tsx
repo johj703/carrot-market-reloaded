@@ -13,7 +13,7 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-2 my-2">
           <span className="bg-green-400 text-white uppercase px-2.5 py-1.5 text-xs 
-          font-medium rounded-full hover:bg-green-500 hover:scale-125">
+          font-medium rounded-full transition hover:bg-green-500 hover:scale-125">
             Today
           </span>
           <span>9:30~10:30</span>
