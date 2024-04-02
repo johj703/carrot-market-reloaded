@@ -12,7 +12,8 @@ export default function Home() {
           <div className="bg-orange-400 rounded-full size-12" />
         </div>
         <div className="flex items-center gap-2 my-2">
-          <span className="bg-green-400 text-white uppercase px-2.5 py-1.5 text-xs font-medium rounded-full hover:bg-green-500">
+          <span className="bg-green-400 text-white uppercase px-2.5 py-1.5 text-xs 
+          font-medium rounded-full hover:bg-green-500">
             Today
           </span>
           <span>9:30~10:30</span>
