@@ -8,7 +8,7 @@ export default function Home() {
           required
           placeholder="Search here!"
         />
-        <button className="py-2 font-medium text-white transition-transform rounded-full outline-none active:scale-90 md:px-10 bg-black peer-invalid:bg-red-100">
+        <button className="py-2 font-medium text-white transition-transform rounded-full outline-none active:scale-90 md:px-10 bg-black peer-required:bg-green-500">
           Search
         </button>
       </div>
