@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className="flex items-center justify-center h-screen p-5 bg-slate-300">
-      <div className="w-full p-5 bg-white shadow-lg rounded-2xl">
+    <main className="flex items-center justify-center h-screen p-5 bg-slate-100">
+      <div className="w-full max-w-screen-sm p-5 bg-white shadow-lg rounded-3xl">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <span className="-mb-1 font-semibold text-gray-600">
