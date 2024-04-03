@@ -7,7 +7,8 @@ export default function Home() {
             <div className="bg-blue-400 rounded-full size-10" />
             <span className="text-lg font-medium">{person}</span>
             <div className="flex items-center justify-center text-white bg-red-500 rounded-full size-6">
-              <span>{index}</span>
+              <span className="z-10">{index}</span>
+              <div className="size-6 bg-red-500 rounded-full absolute animate-ping" />
             </div>
           </div>
         ))}
