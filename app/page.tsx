@@ -6,7 +6,7 @@ export default function Home() {
           <div key={index} className="flex items-center gap-5">
             <div className="bg-blue-400 rounded-full size-10" />
             <span className="text-lg font-medium">{person}</span>
-            <div className="flex items-center justify-center text-white bg-red-500 rounded-full size-6 animate-bounce">
+            <div className="flex items-center justify-center text-white bg-red-500 rounded-full size-6">
               <span>{index}</span>
             </div>
           </div>
