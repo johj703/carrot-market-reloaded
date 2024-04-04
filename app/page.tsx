@@ -8,6 +8,7 @@ export default function Home() {
           <span className="text-lg font-medium">{person}</span>
           <div className="flex items-center justify-center text-white bg-red-500 rounded-full size-6">
             <span>{index}</span>
+            <div className="absolute bg-red-500 rounded-full size-6 animate-ping" />
           </div>
         </div>
         )}
