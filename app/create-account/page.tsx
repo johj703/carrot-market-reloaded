@@ -8,7 +8,7 @@ export default function CreateAccount() {
                 <h2 className="text-xl">Fill in the form below to join!</h2>
             </div>
             <form className="flex flex-col gap-3">
-                <div>
+                <div className="flex flex-col gap-2">
                     <input className="w-full h-10 bg-transparent border-none rounded-md focus:outline-none ring-1 focus:ring-2 ring-neutral-200 focus:ring-orange-500 placeholder:text-neutral-400" type="text" placeholder="Username" required />
                     <span>Input error</span>
                 </div>

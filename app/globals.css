@@ -16,6 +16,6 @@
 
 @layer components {
   .primary-btn {
-    @apply w-full bg-orange-500 text-white text-lg font-medium py-2.5 rounded-md text-center hover:bg-orange-400 transition-colors;
+    @apply w-full bg-orange-500 text-white font-medium py-2.5 rounded-md text-center hover:bg-orange-400 transition-colors;
   }
 }
