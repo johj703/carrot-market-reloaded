@@ -12,8 +12,10 @@ export default function Home() {
         <Link href="/create-account"
         className="w-full text-lg font-medium text-white bg-orange-500 py-2.5 rounded-md text-center hover:bg-orange-400 transition-colors">시작하기</Link>
       </div>
-      <span>이미 계정이 있나요?</span>
-      <Link href="/login">로그인</Link>
+      <div className="flex gap-2">
+        <span>이미 계정이 있나요?</span>
+        <Link href="/login">로그인</Link>
+      </div>
     </div>
   );
 }
