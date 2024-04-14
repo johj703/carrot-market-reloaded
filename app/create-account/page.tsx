@@ -1,3 +1,4 @@
+import FormButton from "@/components/form-btn";
 import FormInput from "@/components/form-index";
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
@@ -24,7 +25,7 @@ export default function CreateAccount() {
           required
           errors={[]}
         />
-        <button className="h-10 primary-btn">Create account</button>
+        <FormButton loading={true} text="Create account" />
       </form>
       <div className="w-full h-px bg-neutral-500" />
       <div>
