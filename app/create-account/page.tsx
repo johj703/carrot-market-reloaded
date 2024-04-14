@@ -10,12 +10,7 @@ export default function CreateAccount() {
         <h2 className="text-xl">Fill in the form below to join!</h2>
       </div>
       <form className="flex flex-col gap-3">
-        <FormInput
-          type="text"
-          placeholder="Username"
-          required
-          errors={["username is too short"]}
-        />
+        <FormInput type="text" placeholder="Username" required errors={[]} />
         <button className="h-10 primary-btn">Create account</button>
       </form>
       <div className="w-full h-px bg-neutral-500" />
