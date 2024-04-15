@@ -25,7 +25,7 @@ export default function CreateAccount() {
           required
           errors={[]}
         />
-        <FormButton loading={true} text="Create account" />
+        <FormButton loading={false} text="Create account" />
       </form>
       <div className="w-full h-px bg-neutral-500" />
       <div>
