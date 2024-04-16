@@ -1,5 +1,6 @@
 import FormButton from "@/components/form-btn";
 import FormInput from "@/components/form-index";
+import SocialLogin from "@/components/social-login";
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
@@ -27,6 +28,7 @@ export default function CreateAccount() {
         />
         <FormButton loading={false} text="Create account" />
       </form>
+      <SocialLogin />
     </div>
   );
 }
