@@ -13,7 +13,7 @@ export default function SocialLogin() {
           <span>
             <ChatBubbleOvalLeftEllipsisIcon className="w-6 h-6" />
           </span>
-          <span>Sign up with SMS</span>
+          <span>Continue with SMS</span>
         </Link>
       </div>
     </>
