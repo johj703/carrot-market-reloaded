@@ -1,21 +1,25 @@
-import Link from "next/link";
+import FormButton from "@/components/form-btn";
+import FormInput from "@/components/form-index";
+import SocialLogin from "@/components/social-login";
 
-export default function Home() {
+export default function LogIn() {
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen p-6">
-      <div className="my-auto flex flex-col items-center gap-2 *:font-medium">
-        <span className="text-9xl">🥕</span>
-        <h1 className="text-4xcl">당근</h1>
-        <h2 className="text-2xl">당근 마켓에 어서오세요!</h2>
+    <div className="flex flex-col gap-10 px-6 py-8">
+      <div className="flex flex-col gap-2 *:font-medium">
+        <h1 className="text-2xl">안녕하세요!</h1>
+        <h2 className="text-xl">Fill in the form below to join!</h2>
       </div>
-      <div className="flex flex-col items-center w-full gap-3">
-        <Link href="/create-account"
-        className="w-full text-lg font-medium text-white bg-orange-500 py-2.5 rounded-md text-center hover:bg-orange-400 transition-colors">시작하기</Link>
-      </div>
-      <div className="flex gap-2">
-        <span>이미 계정이 있나요?</span>
-        <Link href="/login" className="hover:underline">로그인</Link>
-      </div>
+      <form className="flex flex-col gap-3">
+        <FormInput type="email" placeholder="Email" required errors={[]} />
+        <FormInput
+          type="password"
+          placeholder="Password"
+          required
+          errors={[]}
+        />
+        <FormButton loading={false} text="Create account" />
+      </form>
+      <SocialLogin />
     </div>
   );
 }
