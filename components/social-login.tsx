@@ -30,7 +30,7 @@ export default function SocialLogin() {
           href="/sms"
         >
           <span>
-            <ChatBubbleOvalLeftEllipsisIcon className="w-6 h-6" />
+            <ChatBubbleOvalLeftEllipsisIcon className="size-6" />
           </span>
           <span>Continue with SMS</span>
         </Link>
