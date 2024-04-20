@@ -3,8 +3,9 @@ import FormInput from "@/components/form-input";
 import SocialLogin from "@/components/social-login";
 
 export default function LogIn() {
-  async function handleForm() {
+  async function handleForm(formData: FormData) {
     "use server";
+    console.log(formData.get("email"), formData.get("password"));
     console.log("i run in the server!");
   }
   return (
