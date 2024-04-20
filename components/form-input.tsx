@@ -11,6 +11,7 @@ export default function FormInput({
   placeholder,
   required,
   errors,
+  name,
 }: FormInputProps) {
   return (
     <div className="flex flex-col gap-2">
