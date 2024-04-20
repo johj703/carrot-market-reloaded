@@ -3,6 +3,7 @@ interface FormInputProps {
   placeholder: string;
   required: boolean;
   errors: string[];
+  name: string;
 }
 
 export default function FormInput({
