@@ -5,8 +5,7 @@ import SocialLogin from "@/components/social-login";
 export default function LogIn() {
   async function handleForm(formData: FormData) {
     "use server";
-    console.log(formData.get("email"), formData.get("password"));
-    console.log("I run in the server!");
+    console.log("logged in!");
   }
   return (
     <div className="flex flex-col gap-10 px-6 py-8">
