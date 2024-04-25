@@ -8,7 +8,7 @@ export default function LogIn() {
     "use server";
     await new Promise((resolve) => setTimeout(resolve, 5000));
     console.log("logged in!");
-    redirect;
+    redirect("/");
   }
   return (
     <div className="flex flex-col gap-10 px-6 py-8">
