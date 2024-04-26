@@ -8,7 +8,7 @@ import { useFormState } from "react-dom";
 import { handleForm } from "./actions";
 
 export default function LogIn() {
-  const [state, action] = useFormState(handleForm, { potato: 1 } as any);
+  const [state, action] = useFormState(handleForm, null);
   return (
     <div className="flex flex-col gap-10 px-6 py-8">
       <div className="flex flex-col gap-2 *:font-medium">
