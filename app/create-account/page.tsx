@@ -1,3 +1,5 @@
+"use client";
+
 import FormButton from "@/components/form-btn";
 import FormInput from "@/components/form-index";
 import SocialLogin from "@/components/social-login";
