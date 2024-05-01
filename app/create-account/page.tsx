@@ -29,7 +29,7 @@ export default function CreateAccount() {
           required
         />
         <FormInput
-          name="confirmPassword"
+          name="confirm_password"
           type="password"
           placeholder="Confirm Password"
           required
