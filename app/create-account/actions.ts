@@ -5,7 +5,7 @@ const formSchema = z.object({
   username: z.string().min(3).max(10),
   email: z.string().email(),
   password: z.string().min(10),
-  comfirmPassword: z.string().min(10),
+  confirm_password: z.string().min(10),
 })
 
 export async function createAccount(prevState: any, formData: FormData) {
