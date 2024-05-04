@@ -15,9 +15,6 @@ export async function createAccount(prevState: any, formData: FormData) {
     password: formData.get("password"),
     confirm_password: formData.get("confirm_password"),
   };
-  try {
-    formSchema.parse(data);
-  } catch(e) {
-    console.log(e)
-  }
+  const result = formSchema.safeParse(data);
+  console.log(result)
 }
