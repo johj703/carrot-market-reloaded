@@ -20,6 +20,7 @@ export default function CreateAccount() {
           type="text"
           placeholder="Username"
           required
+          errors={state?.fieldErrors.username}
         />
         <FormInput name="email" type="email" placeholder="Email" required />
         <FormInput
