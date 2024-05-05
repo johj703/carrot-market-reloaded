@@ -1,11 +1,8 @@
 "use server";
 import { z } from "zod";
 
-function checkUsername(username: string){
-  return(
-    !username.includes("potato")
-  );
-}
+const checkUsername = (username: string) => 
+  !username.includes("potato");
 
 const formSchema = z.object({
   username: z.string({
