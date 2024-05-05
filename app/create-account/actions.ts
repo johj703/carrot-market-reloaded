@@ -1,6 +1,12 @@
 "use server";
 import { z } from "zod";
 
+function checkUsername(username: string){
+  return(
+    !username.includes("potato")
+  );
+}
+
 const formSchema = z.object({
   username: z.string({
     invalid_type_error: "Username must be a string!",
@@ -8,7 +14,7 @@ const formSchema = z.object({
   })
   .min(3, "Way too short!!")
   .max(10, "That is too long!")
-  .refine((username) => !username.includes("potato"), "No potatoes allowed!"),
+  .refine(checkUsername , "No potatoes allowed!"),
   email: z.string().email(),
   password: z.string().min(10),
   confirm_password: z.string().min(10),
