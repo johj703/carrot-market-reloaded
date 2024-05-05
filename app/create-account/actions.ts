@@ -15,7 +15,7 @@ const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(10),
   confirm_password: z.string().min(10),
-})
+}).refine(({password, confirm_password}) => password === confirm_password, "Both passwords should be the same!")
 
 export async function createAccount(prevState: any, formData: FormData) {
   const data = {
