@@ -2,7 +2,10 @@
 import { z } from "zod";
 
 const formSchema = z.object({
-  username: z.string().min(3, "Way too short!!").max(10, "That is too long!"),
+  username: z.string({
+    invalid_type_error: "Username must be a string!",
+    required_error: "Where is my username???"
+  }).min(3, "Way too short!!").max(10, "That is too long!"),
   email: z.string().email(),
   password: z.string().min(10),
   confirm_password: z.string().min(10),
