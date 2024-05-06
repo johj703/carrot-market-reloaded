@@ -4,6 +4,8 @@ import { z } from "zod";
 const checkUsername = (username: string) => 
   !username.includes("potato");
 
+const checkPasswords = ({password, confirm_password}: password: string, confirm_password: string) => password === confirm_password
+
 const formSchema = z.object({
   username: z.string({
     invalid_type_error: "Username must be a string!",
@@ -15,7 +17,7 @@ const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(10),
   confirm_password: z.string().min(10),
-}).refine(({password, confirm_password}) => password === confirm_password, "Both passwords should be the same!")
+}).refine(checkPasswords, "Both passwords should be the same!")
 
 export async function createAccount(prevState: any, formData: FormData) {
   const data = {
