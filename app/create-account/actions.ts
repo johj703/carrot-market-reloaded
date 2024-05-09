@@ -25,7 +25,10 @@ const formSchema = z
     password: z.string().min(10),
     confirm_password: z.string().min(10),
   })
-  .refine(checkPasswords, "Both passwords should be the same!");
+  .refine(checkPasswords, {
+    message: "Both passwords should be the same!",
+    path: ["confirm_password"],
+  });
 
 export async function createAccount(prevState: any, formData: FormData) {
   const data = {
