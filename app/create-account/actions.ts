@@ -1,6 +1,10 @@
 "use server";
 import { z } from "zod";
 
+const passwordRegex = new RegExp(
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*?[#?!@$%^&*-]).+$/
+);
+
 const checkUsername = (username: string) => !username.includes("potato");
 
 const checkPasswords = ({
