@@ -26,7 +26,13 @@ const formSchema = z
       .max(10, "That is too long!")
       .refine(checkUsername, "No potatoes allowed!"),
     email: z.string().email(),
-    password: z.string().min(10),
+    password: z
+      .string()
+      .min(10)
+      .regex(
+        passwordRegex,
+        "A password must have lowercase, UPPERCASE, a number and special characters."
+      ),
     confirm_password: z.string().min(10),
   })
   .refine(checkPasswords, {
