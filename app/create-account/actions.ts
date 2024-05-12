@@ -23,14 +23,14 @@ const formSchema = z
         required_error: "Where is my username???",
       })
       .min(3, "Way too short!!")
-      .max(10, "That is too long!")
+      //.max(10, "That is too long!")
       .toLowerCase()
       .trim()
       .refine(checkUsername, "No potatoes allowed!"),
     email: z.string().email().toLowerCase(),
     password: z
       .string()
-      .min(10)
+      .min(4)
       .regex(
         passwordRegex,
         "A password must have lowercase, UPPERCASE, a number and special characters."
@@ -52,5 +52,7 @@ export async function createAccount(prevState: any, formData: FormData) {
   const result = formSchema.safeParse(data);
   if (!result.success) {
     return result.error.flatten();
+  } else {
+    console.log(result.data);
   }
 }
