@@ -35,7 +35,7 @@ const formSchema = z
         passwordRegex,
         "A password must have lowercase, UPPERCASE, a number and special characters."
       ),
-    confirm_password: z.string().min(10),
+    confirm_password: z.string().min(4),
   })
   .refine(checkPasswords, {
     message: "Both passwords should be the same!",
