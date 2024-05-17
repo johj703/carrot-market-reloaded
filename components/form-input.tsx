@@ -1,11 +1,8 @@
 import { InputHTMLAttributes } from "react";
 
 interface FormInputProps {
-  type: string;
-  placeholder: string;
-  required: boolean;
-  errors?: string[];
   name: string;
+  errors?: string[];
 }
 
 export default function FormInput({
