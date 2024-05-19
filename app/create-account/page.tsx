@@ -35,6 +35,7 @@ export default function CreateAccount() {
           name="password"
           type="password"
           placeholder="Password"
+          minLength={4}
           required
           errors={state?.fieldErrors.password}
         />
@@ -43,6 +44,7 @@ export default function CreateAccount() {
           type="password"
           placeholder="Confirm Password"
           required
+          minLength={4}
           errors={state?.fieldErrors.confirm_password}
         />
         <FormButton text="Create account" />
