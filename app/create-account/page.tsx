@@ -1,6 +1,6 @@
 "use client";
 
-import FormButton from "@/components/form-btn";
+import Button from "@/components/button";
 import Input from "@/components/input";
 import SocialLogin from "@/components/social-login";
 import { useFormState } from "react-dom";
@@ -47,7 +47,7 @@ export default function CreateAccount() {
           minLength={4}
           errors={state?.fieldErrors.confirm_password}
         />
-        <FormButton text="Create account" />
+        <Button text="Create account" />
       </form>
       <SocialLogin />
     </div>
