@@ -21,6 +21,8 @@ export default function CreateAccount() {
           placeholder="Username"
           required
           errors={state?.fieldErrors.username}
+          minLength={3}
+          maxLength={4}
         />
         <FormInput
           name="email"
