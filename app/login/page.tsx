@@ -6,6 +6,7 @@ import SocialLogin from "@/components/social-login";
 import { redirect } from "next/navigation";
 import { useFormState } from "react-dom";
 import { login } from "./actions";
+import { PASSWORD_MIN_LENGTH } from "@/lib/constants";
 
 export default function LogIn() {
   const [state, action] = useFormState(login, null);
@@ -22,6 +23,7 @@ export default function LogIn() {
           type="password"
           placeholder="Password"
           required
+          minLength={PASSWORD_MIN_LENGTH}
         />
         <Button text="Log in" />
       </form>
