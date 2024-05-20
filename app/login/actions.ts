@@ -1,6 +1,6 @@
 "use server";
 
-export async function handleForm(prevState: any, formData: FormData) {
+export async function login(prevState: any, formData: FormData) {
   return {
     errors: ["wrong password", "password too short"],
   };
