@@ -10,7 +10,9 @@ import { z } from "zod";
 const formSchema = z.object({
   email: z.string().email().toLowerCase(),
   password: z
-    .string()
+    .string({
+      required_error: "Password is required",
+    })
     .min(PASSWORD_MIN_LENGTH)
     .regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
 });
