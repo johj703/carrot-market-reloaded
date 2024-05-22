@@ -14,7 +14,7 @@ export default function SMSLogin() {
         <h1 className="text-2xl">SMS Login</h1>
         <h2 className="text-xl">Verify your phone number.</h2>
       </div>
-      <form className="flex flex-col gap-3">
+      <form action={dispatch} className="flex flex-col gap-3">
         <Input name="phone" type="number" placeholder="Phone number" required />
         <Input
           name="token"
