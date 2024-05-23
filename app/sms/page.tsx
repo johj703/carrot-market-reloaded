@@ -21,6 +21,8 @@ export default function SMSLogin() {
           type="number"
           placeholder="Verification code"
           required
+          min={100000}
+          max={999999}
         />
         <Button text="Verify" />
       </form>
