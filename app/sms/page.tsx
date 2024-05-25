@@ -8,7 +8,7 @@ import { smsLogin } from "./actions";
 
 const initialState = {
   token: false,
-}
+};
 
 export default function SMSLogin() {
   const [state, dispatch] = useFormState(smsLogin, initialState);
@@ -20,14 +20,16 @@ export default function SMSLogin() {
       </div>
       <form action={dispatch} className="flex flex-col gap-3">
         <Input name="phone" type="text" placeholder="Phone number" required />
-        {<Input
-          name="token"
-          type="number"
-          placeholder="Verification code"
-          required
-          min={100000}
-          max={999999}
-        />}
+        {state.token ? (
+          <Input
+            name="token"
+            type="number"
+            placeholder="Verification code"
+            required
+            min={100000}
+            max={999999}
+          />
+        ) : null}
         <Button text="Verify" />
       </form>
     </div>
