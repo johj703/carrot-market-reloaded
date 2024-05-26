@@ -23,6 +23,10 @@ export async function smsLogin(prevState: ActionState, formData: FormData) {
       return {
         token: false,
       };
+    } else {
+      return {
+        token: true,
+      };
     }
   }
 }
