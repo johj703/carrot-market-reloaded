@@ -27,6 +27,14 @@ export async function smsLogin(prevState: ActionState, formData: FormData) {
       return {
         token: true,
       };
+    } else {
+      const result = tokenSchema.safeParse(token);
+      if(!result.success){
+        return {
+          token: true,
+          // return the errors
+        }
+      }
     }
   }
 }
