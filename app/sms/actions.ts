@@ -7,7 +7,10 @@ import { redirect } from "next/navigation";
 const phoneSchema = z
   .string()
   .trim()
-  .refine((phone) => validator.isMobilePhone(phone, "ko-KR"));
+  .refine(
+    (phone) => validator.isMobilePhone(phone, "ko-KR"),
+    "Wrong phone format"
+  );
 
 const tokenSchema = z.coerce.number().min(100000).max(999999);
 
