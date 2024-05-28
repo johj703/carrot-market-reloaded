@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import validator from "validator";
+import { redirect } from "next/dist/server/api-utils";
 
 const phoneSchema = z
   .string()
@@ -14,7 +15,7 @@ interface ActionState {
   token: boolean;
 }
 
-export async function smsLogin(prevState: ActionState, formData: FormData) {
+export async function SMSLogin(prevState: ActionState, formData: FormData) {
   const phone = formData.get("phone");
   const token = formData.get("token");
   if (!prevState.token) {
@@ -27,14 +28,19 @@ export async function smsLogin(prevState: ActionState, formData: FormData) {
       return {
         token: true,
       };
+    }
+  } else {
+    const result = tokenSchema.safeParse(token);
+    if(!result.success){
+      return {
+        token: true,
+        // return the errors
+      };
     } else {
-      const result = tokenSchema.safeParse(token);
-      if(!result.success){
-        return {
-          token: true,
-          // return the errors
-        }
+      return {
+        redirect("/");
       }
     }
+  }
   }
 }
