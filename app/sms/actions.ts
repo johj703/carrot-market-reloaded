@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import validator from "validator";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 
 const phoneSchema = z
   .string()
@@ -31,16 +31,13 @@ export async function smsLogin(prevState: ActionState, formData: FormData) {
     }
   } else {
     const result = tokenSchema.safeParse(token);
-    if(!result.success){
+    if (!result.success) {
       return {
         token: true,
         // return the errors
       };
     } else {
-      return {
-        redirect("/");
-      }
+      redirect("/");
     }
-  }
   }
 }
