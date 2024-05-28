@@ -15,7 +15,7 @@ interface ActionState {
   token: boolean;
 }
 
-export async function SMSLogin(prevState: ActionState, formData: FormData) {
+export async function smsLogin(prevState: ActionState, formData: FormData) {
   const phone = formData.get("phone");
   const token = formData.get("token");
   if (!prevState.token) {
