@@ -16,4 +16,5 @@ model User {
   github_id String? @unique
   avatar String?
   created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
