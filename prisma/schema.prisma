@@ -18,3 +18,10 @@ model User {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
+
+model SMSToken {
+  id Int @id @default(autoincrement())
+  token String @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
