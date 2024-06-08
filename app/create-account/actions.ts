@@ -29,10 +29,8 @@ const formSchema = z
       //.transform((username) => `🔥${username}🔥`)
       .refine(checkUsername, "No potatoes allowed!"),
     email: z.string().email().toLowerCase(),
-    password: z
-      .string()
-      .min(PASSWORD_MIN_LENGTH)
-      //.regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
+    password: z.string().min(PASSWORD_MIN_LENGTH),
+    //.regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
     confirm_password: z.string().min(PASSWORD_MIN_LENGTH),
   })
   .refine(checkPasswords, {
