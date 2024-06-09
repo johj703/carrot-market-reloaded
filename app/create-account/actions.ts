@@ -58,7 +58,9 @@ export async function createAccount(prevState: any, formData: FormData) {
         id: true,
       },
     });
-    console.log(user);
+    if (user) {
+      // show an error
+    }
     // check if the email is already used
     // hash password
     // save the user to db
