@@ -61,6 +61,17 @@ export async function createAccount(prevState: any, formData: FormData) {
     if (user) {
       // show an error
     }
+    const userEmail = await db.user.findUnique({
+      where: {
+        email: result.data.email,
+      },
+      select: {
+        id: true,
+      },
+    });
+    if (userEmail) {
+      // show an error to the user
+    }
     // check if the email is already used
     // hash password
     // save the user to db
