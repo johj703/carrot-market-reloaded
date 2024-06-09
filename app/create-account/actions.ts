@@ -54,6 +54,9 @@ export async function createAccount(prevState: any, formData: FormData) {
       where: {
         username: result.data.username,
       },
+      select: {
+        id: true,
+      },
     });
     console.log(user);
     // check if the email is already used
