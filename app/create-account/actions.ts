@@ -7,7 +7,22 @@ import {
 import db from "@/lib/db";
 import { z } from "zod";
 
-const checkUsername = (username: string) => !username.includes("potato");
+const checkUsername = async (username: string) => {
+  const user = await db.user.findUnique({
+    where: {
+      username,
+    },
+    select: {
+      id: true,
+    },
+  });
+  // if (user) {
+  //   return false;
+  // } else {
+  //   return true;
+  // }
+  return !Boolean(user);
+};
 
 const checkPasswords = ({
   password,
