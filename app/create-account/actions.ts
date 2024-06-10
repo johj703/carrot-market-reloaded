@@ -58,7 +58,14 @@ const formSchema = z
       //.transform((username) => `🔥${username}🔥`)
       .refine(checkUsername, "No potatoes allowed!")
       .refine(checkUniqueUsername, "This username is already taken"),
-    email: z.string().email().toLowerCase(),
+    email: z
+      .string()
+      .email()
+      .toLowerCase()
+      .refine(
+        checkUniqueEmail,
+        "There is an account already registered with that email."
+      ),
     password: z.string().min(PASSWORD_MIN_LENGTH),
     //.regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
     confirm_password: z.string().min(PASSWORD_MIN_LENGTH),
