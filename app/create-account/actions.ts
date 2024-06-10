@@ -43,7 +43,7 @@ const checkUniqueEmail = async (email: string) => {
       id: true,
     },
   });
-  return !Boolean(user);
+  return Boolean(user) === false;
 };
 
 const formSchema = z
