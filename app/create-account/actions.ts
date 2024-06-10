@@ -34,6 +34,18 @@ const checkUniqueUsername = async (username: string) => {
   return !Boolean(user);
 };
 
+const checkUniqueEmail = async (email: string) => {
+  const user = await db.user.findUnique({
+    where: {
+      email,
+    },
+    select: {
+      id: true,
+    },
+  });
+  return !Boolean(user);
+};
+
 const formSchema = z
   .object({
     username: z
@@ -67,33 +79,11 @@ export async function createAccount(prevState: any, formData: FormData) {
   if (!result.success) {
     return result.error.flatten();
   } else {
-    // check if username is taken
-    const user = await db.user.findUnique({
-      where: {
-        username: result.data.username,
-      },
-      select: {
-        id: true,
-      },
-    });
-    if (user) {
-      // show an error
-    }
-    const userEmail = await db.user.findUnique({
-      where: {
-        email: result.data.email,
-      },
-      select: {
-        id: true,
-      },
-    });
-    if (userEmail) {
-      // show an error to the user
-    }
-    // check if the email is already used
-    // hash password
-    // save the user to db
-    // log the user in
-    // redirect "/home"
+    // show an error to the user
   }
+  // check if the email is already used
+  // hash password
+  // save the user to db
+  // log the user in
+  // redirect "/home"
 }
