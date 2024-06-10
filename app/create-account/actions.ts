@@ -44,7 +44,8 @@ const formSchema = z
       .toLowerCase()
       .trim()
       //.transform((username) => `🔥${username}🔥`)
-      .refine(checkUsername, "No potatoes allowed!"),
+      .refine(checkUsername, "No potatoes allowed!")
+      .refine(checkUniqueUsername, "This username is already taken"),
     email: z.string().email().toLowerCase(),
     password: z.string().min(PASSWORD_MIN_LENGTH),
     //.regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
