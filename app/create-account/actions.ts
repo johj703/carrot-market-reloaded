@@ -7,6 +7,16 @@ import {
 import db from "@/lib/db";
 import { z } from "zod";
 
+const checkUsername = (username: string) => !username.includes("potato");
+
+const checkPasswords = ({
+  password,
+  confirm_password,
+}: {
+  password: string;
+  confirm_password: string;
+}) => password === confirm_password;
+
 const checkUniqueUsername = async (username: string) => {
   const user = await db.user.findUnique({
     where: {
@@ -23,14 +33,6 @@ const checkUniqueUsername = async (username: string) => {
   // }
   return !Boolean(user);
 };
-
-const checkPasswords = ({
-  password,
-  confirm_password,
-}: {
-  password: string;
-  confirm_password: string;
-}) => password === confirm_password;
 
 const formSchema = z
   .object({
