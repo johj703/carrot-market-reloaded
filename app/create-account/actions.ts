@@ -7,7 +7,7 @@ import {
 import db from "@/lib/db";
 import { z } from "zod";
 
-const checkUsername = async (username: string) => {
+const checkUniqueUsername = async (username: string) => {
   const user = await db.user.findUnique({
     where: {
       username,
