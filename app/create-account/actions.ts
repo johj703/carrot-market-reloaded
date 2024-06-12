@@ -95,6 +95,9 @@ export async function createAccount(prevState: any, formData: FormData) {
         email: result.data.email,
         password: hashedPassword,
       },
+      select: {
+        id: true,
+      },
     });
     // log the user in
     // redirect "/home"
