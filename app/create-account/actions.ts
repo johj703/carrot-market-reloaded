@@ -87,9 +87,8 @@ export async function createAccount(prevState: any, formData: FormData) {
   if (!result.success) {
     return result.error.flatten();
   } else {
-    // hash password
     const hashedPassword = await bcrypt.hash(result.data.password, 12);
-    // save the user to db
+
     const user = await db.user.create({
       data: {
         username: result.data.username,
