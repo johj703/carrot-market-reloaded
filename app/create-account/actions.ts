@@ -99,6 +99,7 @@ export async function createAccount(prevState: any, formData: FormData) {
         id: true,
       },
     });
+    console.log(user);
     // log the user in
     // redirect "/home"
   }
