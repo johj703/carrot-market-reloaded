@@ -88,7 +88,7 @@ export async function createAccount(prevState: any, formData: FormData) {
     return result.error.flatten();
   } else {
     // hash password
-    const hashedPassword = bcrypt.hash(result.data.password, 12);
+    const hashedPassword = await bcrypt.hash(result.data.password, 12);
     // save the user to db
     // log the user in
     // redirect "/home"
