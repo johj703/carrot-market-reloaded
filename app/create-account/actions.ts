@@ -90,6 +90,13 @@ export async function createAccount(prevState: any, formData: FormData) {
     // hash password
     const hashedPassword = await bcrypt.hash(result.data.password, 12);
     // save the user to db
+    const user = await db.user.create({
+      data: {
+        username: result.data.username,
+        email: result.data.email,
+        password: hashedPassword,
+      },
+    });
     // log the user in
     // redirect "/home"
   }
