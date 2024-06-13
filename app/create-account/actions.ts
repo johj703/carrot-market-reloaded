@@ -102,10 +102,13 @@ export async function createAccount(prevState: any, formData: FormData) {
     });
     console.log(user);
     // log the user in
-    const session = await getIronSession(cookies(), {
+    const cookie = await getIronSession(cookies(), {
       cookieName: "delicious-carrot",
       password: process.env.COOKIE_PASSWORD!
-    })
+    });
+    //@ts-ignore
+    cookie.id = user.id
+    await cookie.save()
     // redirect "/home"
   }
 }
