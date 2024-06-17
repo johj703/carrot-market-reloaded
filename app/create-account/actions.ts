@@ -10,6 +10,7 @@ import { z } from "zod";
 import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import getSession from "@/lib/session";
 
 const checkUsername = (username: string) => !username.includes("potato");
 
@@ -103,15 +104,9 @@ export async function createAccount(prevState: any, formData: FormData) {
       },
     });
     console.log(user);
-    // log the user in
-    const cookie = await getIronSession(cookies(), {
-      cookieName: "delicious-carrot",
-      password: process.env.COOKIE_PASSWORD!
-    });
-    //@ts-ignore
-    cookie.id = user.id
-    await cookie.save()
-    // redirect "/home"
-    redirect("/profile")
+    const cookie = await getSession();
+    cookie.id = user.id;
+    await cookie.save();
+    redirect("/profile");
   }
 }
