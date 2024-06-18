@@ -7,6 +7,7 @@ import {
 } from "@/lib/constants";
 import db from "@/lib/db";
 import { z } from "zod";
+import { bcrypt } from "bcrypt";
 
 const checkEmailExists = async (email: string) => {
   const user = await db.user.findUnique({
@@ -48,6 +49,15 @@ export async function login(prevState: any, formData: FormData) {
     return result.error.flatten();
   } else {
     // if the user is found, check password hash
+    const user = await db.user.findUnique({
+      where: {
+        email: result.data.email,
+      },
+      select: {
+        password: true,
+      },
+    });
+    bcrypt.compare(result.data.password, user!.password ?? "");
     // log the user in
     // redirect "/profile"
   }
