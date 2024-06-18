@@ -104,9 +104,9 @@ export async function createAccount(prevState: any, formData: FormData) {
       },
     });
     console.log(user);
-    const cookie = await getSession();
-    cookie.id = user.id;
-    await cookie.save();
+    const session = await getSession();
+    session.id = user.id;
+    await session.save();
     redirect("/profile");
   }
 }
