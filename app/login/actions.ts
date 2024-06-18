@@ -5,10 +5,32 @@ import {
   PASSWORD_REGEX,
   PASSWORD_REGEX_ERROR,
 } from "@/lib/constants";
+import db from "@/lib/db";
 import { z } from "zod";
 
+const checkEmailExists = async (email: string) => {
+  const user = await db.user.findUnique({
+    where: {
+      email,
+    },
+    select: {
+      id: true,
+    },
+  });
+  // if(user) {
+  //   return true
+  // } else {
+  //   return false
+  // }
+  return Boolean(user);
+};
+
 const formSchema = z.object({
-  email: z.string().email().toLowerCase(),
+  email: z
+    .string()
+    .email()
+    .toLowerCase()
+    .refine(checkEmailExists, "An account with this email does not exist."),
   password: z.string({
     required_error: "Password is required",
   }),
