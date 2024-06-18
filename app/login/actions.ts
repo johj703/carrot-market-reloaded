@@ -57,7 +57,7 @@ export async function login(prevState: any, formData: FormData) {
         password: true,
       },
     });
-    bcrypt.compare(result.data.password, user!.password ?? "");
+    bcrypt.compare(result.data.password, user!.password ?? "xxxx");
     // log the user in
     // redirect "/profile"
   }
