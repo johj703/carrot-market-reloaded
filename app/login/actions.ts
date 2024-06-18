@@ -13,8 +13,8 @@ const formSchema = z.object({
     .string({
       required_error: "Password is required",
     })
-    .min(PASSWORD_MIN_LENGTH)
-    .regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
+    .min(PASSWORD_MIN_LENGTH),
+  //.regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
 });
 
 export async function login(prevState: any, formData: FormData) {
