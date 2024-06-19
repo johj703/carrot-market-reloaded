@@ -7,7 +7,7 @@ import {
 } from "@/lib/constants";
 import db from "@/lib/db";
 import { z } from "zod";
-import { bcrypt } from "bcrypt";
+import bcrypt from "bcrypt"
 
 const checkEmailExists = async (email: string) => {
   const user = await db.user.findUnique({
