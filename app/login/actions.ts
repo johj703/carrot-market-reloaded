@@ -7,7 +7,9 @@ import {
 } from "@/lib/constants";
 import db from "@/lib/db";
 import { z } from "zod";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
+import getSession from "@/lib/session";
+import { redirect } from "next/navigation";
 
 const checkEmailExists = async (email: string) => {
   const user = await db.user.findUnique({
@@ -54,6 +56,7 @@ export async function login(prevState: any, formData: FormData) {
         email: result.data.email,
       },
       select: {
+        id: true,
         password: true,
       },
     });
@@ -61,7 +64,11 @@ export async function login(prevState: any, formData: FormData) {
       result.data.password,
       user!.password ?? "xxxx"
     );
-    console.log(ok);
+    if (ok) {
+      const session = await getSession();
+      session.id = user!.id;
+      redirect("/profile");
+    }
     // log the user in
     // redirect "/profile"
   }
