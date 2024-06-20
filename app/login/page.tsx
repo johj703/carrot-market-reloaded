@@ -30,6 +30,7 @@ export default function LogIn() {
           placeholder="Password"
           required
           minLength={PASSWORD_MIN_LENGTH}
+          errors={state?.fieldErrors.password}
         />
         <Button text="Log in" />
       </form>
