@@ -72,6 +72,7 @@ export async function login(prevState: any, formData: FormData) {
       return {
         fieldErrors: {
           password: ["Wrong password."],
+          email: [],
         },
       };
     }
