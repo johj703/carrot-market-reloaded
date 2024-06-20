@@ -68,6 +68,12 @@ export async function login(prevState: any, formData: FormData) {
       const session = await getSession();
       session.id = user!.id;
       redirect("/profile");
+    } else {
+      return {
+        fieldErrors: {
+          password: ["Wrong password."],
+        },
+      };
     }
     // log the user in
     // redirect "/profile"
