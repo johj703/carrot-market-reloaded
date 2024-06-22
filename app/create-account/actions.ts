@@ -36,10 +36,7 @@ const formSchema = z
     //.regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
     confirm_password: z.string().min(PASSWORD_MIN_LENGTH),
   })
-  .refine(checkPasswords, {
-    message: "Both passwords should be the same!",
-    path: ["confirm_password"],
-  })
+
   .superRefine(async ({ username }, ctx) => {
     const user = await db.user.findUnique({
       where: {
@@ -58,6 +55,10 @@ const formSchema = z
       });
       return z.NEVER;
     }
+  })
+  .refine(checkPasswords, {
+    message: "Both passwords should be the same!",
+    path: ["confirm_password"],
   });
 
 export async function createAccount(prevState: any, formData: FormData) {
