@@ -56,6 +56,25 @@ const formSchema = z
       return z.NEVER;
     }
   })
+  .superRefine(async ({ email }, ctx) => {
+    const user = await db.user.findUnique({
+      where: {
+        email,
+      },
+      select: {
+        id: true,
+      },
+    });
+    if (user) {
+      ctx.addIssue({
+        code: "custom",
+        message: "This email is already taken.",
+        path: ["email"],
+        fatal: true,
+      });
+      return z.NEVER;
+    }
+  })
   .refine(checkPasswords, {
     message: "Both passwords should be the same!",
     path: ["confirm_password"],
