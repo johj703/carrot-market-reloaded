@@ -31,9 +31,7 @@ const formSchema = z
       .trim()
       //.transform((username) => `🔥${username}🔥`)
       .refine(checkUsername, "No potatoes allowed!"),
-
     email: z.string().email().toLowerCase(),
-
     password: z.string().min(PASSWORD_MIN_LENGTH),
     //.regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
     confirm_password: z.string().min(PASSWORD_MIN_LENGTH),
@@ -55,7 +53,10 @@ const formSchema = z
       ctx.addIssue({
         code: "custom",
         message: "This username is already taken.",
+        path: ["username"],
+        fatal: true,
       });
+      return z.NEVER;
     }
   });
 
@@ -68,6 +69,7 @@ export async function createAccount(prevState: any, formData: FormData) {
   };
   const result = await formSchema.spa(data);
   if (!result.success) {
+    console.log(result.error.flatten());
     return result.error.flatten();
   } else {
     const hashedPassword = await bcrypt.hash(result.data.password, 12);
